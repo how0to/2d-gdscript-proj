@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://blgddhuptfyau"]
+[gd_scene load_steps=9 format=3 uid="uid://blgddhuptfyau"]
 
 [ext_resource type="Texture2D" uid="uid://bd8xrmyjx2wis" path="res://assets/sprites/knight.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://2ddvcj0c0fhn" path="res://scenes/player.gd" id="1_g2els"]
@@ -42,10 +42,8 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fjrip"]
 size = Vector2(8, 13)
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_g2els"]
-distance = -129.0
-
 [node name="Player" type="CharacterBody2D"]
+position = Vector2(0, -12)
 script = ExtResource("1_g2els")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -57,13 +55,3 @@ autoplay = "Idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 3.5)
 shape = SubResource("RectangleShape2D_fjrip")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(3, 3)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(-1, 15)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(1, 63)
-shape = SubResource("WorldBoundaryShape2D_g2els")
