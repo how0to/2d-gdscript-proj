@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://blgddhuptfyau"]
+[gd_scene load_steps=10 format=3 uid="uid://blgddhuptfyau"]
 
 [ext_resource type="Texture2D" uid="uid://bd8xrmyjx2wis" path="res://assets/sprites/knight.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://2ddvcj0c0fhn" path="res://scenes/player.gd" id="1_g2els"]
@@ -42,6 +42,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fjrip"]
 size = Vector2(5.5, 9.166666)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
+size = Vector2(7.4999995, 12.5)
+
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(0, -12)
 script = ExtResource("1_g2els")
@@ -52,7 +55,12 @@ sprite_frames = SubResource("SpriteFrames_tuyoq")
 animation = &"Idle"
 autoplay = "Idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Hitbox" type="CollisionShape2D" parent="."]
 position = Vector2(-0.7, 3.5)
 scale = Vector2(1.2, 1.2)
 shape = SubResource("RectangleShape2D_fjrip")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5000001, 4.5)
+scale = Vector2(1.2, 1.2)
+shape = SubResource("RectangleShape2D_g2els")
