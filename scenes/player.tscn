@@ -46,6 +46,7 @@ size = Vector2(5.5, 9.166666)
 size = Vector2(7.4999995, 12.5)
 
 [node name="Player" type="CharacterBody2D"]
+z_index = 2000
 position = Vector2(0, -12)
 script = ExtResource("1_g2els")
 
@@ -64,3 +65,7 @@ shape = SubResource("RectangleShape2D_fjrip")
 position = Vector2(-0.5000001, 4.5)
 scale = Vector2(1.2, 1.2)
 shape = SubResource("RectangleShape2D_g2els")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-1, 4)
+zoom = Vector2(2, 2)

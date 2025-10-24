@@ -1,7 +1,10 @@
-[gd_scene load_steps=6 format=4 uid="uid://dq1ir3uipyqm8"]
+[gd_scene load_steps=12 format=4 uid="uid://dq1ir3uipyqm8"]
 
 [ext_resource type="PackedScene" uid="uid://blgddhuptfyau" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://cujtmgdf0u747" path="res://assets/sprites/world_tileset.png" id="2_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://c10velw4lrial" path="res://scenes/green_grass_platform.tscn" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://vdp2nnch1htv" path="res://scenes/coin.tscn" id="4_iywne"]
+[ext_resource type="PackedScene" uid="uid://cilchm6sdmn48" path="res://scenes/yellow_grass_platform.tscn" id="5_p57ef"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_uwrxv"]
 
@@ -180,6 +183,44 @@ texture = ExtResource("2_yqjtg")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_lnu2h")
 
+[sub_resource type="Animation" id="Animation_iywne"]
+resource_name = "Move"
+length = 7.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(2.5, 3.5, 6, 7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(433, -43), Vector2(433, -43), Vector2(625, -43), Vector2(625, -43)]
+}
+
+[sub_resource type="Animation" id="Animation_p57ef"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(433, -43)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u5sy4"]
+_data = {
+&"Move": SubResource("Animation_iywne"),
+&"RESET": SubResource("Animation_p57ef")
+}
+
 [node name="Game" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_uwrxv")]
@@ -192,11 +233,22 @@ position = Vector2(0, 164)
 position = Vector2(0, 1)
 shape = SubResource("WorldBoundaryShape2D_uwrxv")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, -12)
-zoom = Vector2(3, 3)
-
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(1, -96)
-tile_map_data = PackedByteArray("AAD+/wUAAAAAAAAAAAD//wUAAAAAAAAAAAAAAAUAAAAAAAAAAAABAAUAAAAAAAAAAAACAAUAAAAAAAAAAAADAAUAAAAAAAAAAAAEAAUAAAAAAAAAAAD9/wUAAAAAAAAAAAAFAAQAAAAAAAAAAAAFAAMAAAAAAAAAAAAEAAQAAAAAAAAAAAD9/wYAAAABAAEAAAD+/wYAAAABAAEAAAD//wYAAAABAAEAAAAAAAYAAAABAAEAAAABAAYAAAABAAEAAAACAAYAAAABAAEAAAADAAYAAAABAAEAAAAEAAYAAAABAAEAAAD8/wYAAAABAAEAAAD8/wUAAAAAAAAAAAAGAAMAAAAJAAAAAAAHAAMAAAAKAAAAAAALAAMAAAALAAAAAAAIAAMAAAAKAAAAAAAJAAMAAAAKAAAAAAAKAAMAAAAKAAAAAAA=")
+tile_map_data = PackedByteArray("AAD+/wUAAAAAAAAAAAD//wUAAAAAAAAAAAAAAAUAAAAAAAAAAAABAAUAAAAAAAAAAAACAAUAAAAAAAAAAAADAAUAAAAAAAAAAAAEAAUAAAAAAAAAAAD9/wUAAAAAAAAAAAAFAAQAAAAAAAAAAAAFAAMAAAAAAAAAAAAEAAQAAAAAAAAAAAD9/wYAAAABAAEAAAD+/wYAAAABAAEAAAD//wYAAAABAAEAAAAAAAYAAAABAAEAAAABAAYAAAABAAEAAAACAAYAAAABAAEAAAADAAYAAAABAAEAAAAEAAYAAAABAAEAAAD8/wYAAAABAAEAAAD8/wUAAAAAAAAAAAAGAAMAAAAJAAAAAAAHAAMAAAAKAAAAAAALAAMAAAALAAAAAAAIAAMAAAAKAAAAAAAJAAMAAAAKAAAAAAAKAAMAAAAKAAAAAAAMAAMAAAAEAAAAAAANAAMAAAAEAAAAAAAOAAMAAAAFAAAAAAAPAAMAAAAFAAAAAAAQAAMAAAAFAAAAAAARAAMAAAAFAAAAAAASAAMAAAAFAAAAAAATAAMAAAAFAAAAAAAUAAMAAAAFAAAAAAAVAAMAAAAFAAAAAAAWAAMAAAAFAAAAAAAXAAMAAAAFAAAAAAAYAAMAAAAFAAAAAAAZAAMAAAAFAAAAAAAOAAIAAAAEAAAAAAAPAAIAAAAEAAAAAAAQAAIAAAAEAAAAAAARAAIAAAAEAAAAAAASAAIAAAAFAAEAAAATAAIAAAAFAAEAAAAUAAIAAAAEAAAAAAASAAEAAAAEAAAAAAATAAEAAAAEAAAAAAAVAAIAAAAEAAAAAAAWAAIAAAAEAAAAAAAXAAIAAAAEAAAAAAAYAAIAAAAEAAAAAAAoAAMAAAAGAAAAAAApAAMAAAAGAAAAAAAqAAMAAAAGAAAAAAArAAMAAAAGAAAAAAAsAAMAAAAGAAAAAAAtAAMAAAAGAAAAAAAuAAMAAAAGAAAAAAAuAAQAAAAGAAEAAAAvAAQAAAAGAAEAAAAwAAQAAAAGAAAAAAAvAAMAAAAGAAAAAAAtAAQAAAAGAAEAAAAsAAQAAAAGAAEAAAArAAQAAAAGAAEAAAAqAAQAAAAGAAEAAAApAAQAAAAGAAEAAAAoAAQAAAAGAAEAAAAoAAUAAAAGAAEAAAApAAUAAAAGAAEAAAAqAAUAAAAGAAEAAAArAAUAAAAGAAEAAAAsAAUAAAAGAAEAAAAtAAUAAAAGAAEAAAAuAAUAAAAGAAEAAAAvAAUAAAAGAAEAAAAoAAYAAAAGAAEAAAApAAYAAAAGAAEAAAAqAAYAAAAGAAEAAAArAAYAAAAGAAEAAAAsAAYAAAAGAAEAAAAtAAYAAAAGAAEAAAAuAAYAAAAGAAEAAAAvAAYAAAAGAAEAAAAoAAcAAAAGAAEAAAApAAcAAAAGAAEAAAAqAAcAAAAGAAEAAAArAAcAAAAGAAEAAAAsAAcAAAAGAAEAAAAtAAcAAAAGAAEAAAAuAAcAAAAGAAEAAAAvAAcAAAAGAAEAAAAoAAgAAAAGAAEAAAApAAgAAAAGAAEAAAApAAkAAAAGAAEAAAAqAAkAAAAGAAEAAAAqAAoAAAAGAAEAAAAqAAgAAAAGAAEAAAArAAgAAAAGAAEAAAAsAAgAAAAGAAEAAAAtAAgAAAAGAAEAAAAuAAgAAAAGAAEAAAAvAAgAAAAGAAEAAAAvAAkAAAAGAAEAAAAuAAkAAAAGAAEAAAAtAAkAAAAGAAEAAAAsAAkAAAAGAAEAAAArAAkAAAAGAAEAAAAoAAkAAAAGAAEAAAAoAAoAAAAGAAEAAAApAAoAAAAGAAEAAAArAAoAAAAGAAEAAAAsAAoAAAAGAAEAAAAtAAoAAAAGAAEAAAAuAAoAAAAGAAEAAAAvAAoAAAAGAAEAAAAwAAUAAAAGAAEAAAAwAAYAAAAGAAEAAAAwAAcAAAAGAAEAAAAwAAgAAAAGAAEAAAAwAAkAAAAGAAEAAAAwAAoAAAAGAAEAAAA=")
 tile_set = SubResource("TileSet_lbhrr")
+
+[node name="GreenGrassPlatform" parent="." instance=ExtResource("3_lnu2h")]
+position = Vector2(38, -43)
+
+[node name="Coin" parent="." instance=ExtResource("4_iywne")]
+position = Vector2(89, -54)
+
+[node name="YellowGrassPlatform" parent="." instance=ExtResource("5_p57ef")]
+position = Vector2(433, -43)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="YellowGrassPlatform"]
+libraries = {
+&"": SubResource("AnimationLibrary_u5sy4")
+}
+autoplay = "Move"

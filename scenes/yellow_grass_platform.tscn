@@ -1,11 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://c10velw4lrial"]
+[gd_scene load_steps=3 format=3 uid="uid://cilchm6sdmn48"]
 
-[ext_resource type="Texture2D" uid="uid://dgv0g03n5md2o" path="res://assets/sprites/platforms.png" id="1_rl3ns"]
+[ext_resource type="Texture2D" uid="uid://dgv0g03n5md2o" path="res://assets/sprites/platforms.png" id="1_p2vka"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fb7ww"]
 size = Vector2(1.5776377, 8)
 
-[node name="GreenGrassPlatform" type="AnimatableBody2D"]
+[node name="YellowGrassPlatform" type="AnimatableBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -0.5)
@@ -15,6 +15,6 @@ one_way_collision = true
 
 [node name="Platforms" type="Sprite2D" parent="."]
 position = Vector2(0, -0.5)
-texture = ExtResource("1_rl3ns")
+texture = ExtResource("1_p2vka")
 region_enabled = true
-region_rect = Rect2(16, 0, 32, 9)
+region_rect = Rect2(16, 32, 32, 9)
