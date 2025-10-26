@@ -1,12 +1,11 @@
-[gd_scene load_steps=12 format=4 uid="uid://dq1ir3uipyqm8"]
+[gd_scene load_steps=13 format=4 uid="uid://dq1ir3uipyqm8"]
 
 [ext_resource type="PackedScene" uid="uid://blgddhuptfyau" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://cujtmgdf0u747" path="res://assets/sprites/world_tileset.png" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://c10velw4lrial" path="res://scenes/green_grass_platform.tscn" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://vdp2nnch1htv" path="res://scenes/coin.tscn" id="4_iywne"]
 [ext_resource type="PackedScene" uid="uid://cilchm6sdmn48" path="res://scenes/yellow_grass_platform.tscn" id="5_p57ef"]
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://g8r1clk56363" path="res://scenes/killzone.tscn" id="6_p57ef"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("2_yqjtg")
@@ -221,17 +220,17 @@ _data = {
 &"RESET": SubResource("Animation_p57ef")
 }
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_p57ef"]
+
 [node name="Game" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_uwrxv")]
 position = Vector2(1, -96)
+collision_mask = 3
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(0, 164)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(0, 1)
-shape = SubResource("WorldBoundaryShape2D_uwrxv")
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(2, 2)
+limit_bottom = 50
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(1, -96)
@@ -244,6 +243,15 @@ position = Vector2(38, -43)
 [node name="Coin" parent="." instance=ExtResource("4_iywne")]
 position = Vector2(89, -54)
 
+[node name="Coin2" parent="." instance=ExtResource("4_iywne")]
+position = Vector2(233, -68)
+
+[node name="Coin3" parent="." instance=ExtResource("4_iywne")]
+position = Vector2(432, -53)
+
+[node name="Coin4" parent="." instance=ExtResource("4_iywne")]
+position = Vector2(649, -55)
+
 [node name="YellowGrassPlatform" parent="." instance=ExtResource("5_p57ef")]
 position = Vector2(433, -43)
 
@@ -252,3 +260,9 @@ libraries = {
 &"": SubResource("AnimationLibrary_u5sy4")
 }
 autoplay = "Move"
+
+[node name="Killzone" parent="." instance=ExtResource("6_p57ef")]
+position = Vector2(4, 358)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+shape = SubResource("WorldBoundaryShape2D_p57ef")
