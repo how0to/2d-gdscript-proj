@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fb7ww"]
 size = Vector2(1.5776377, 8)
 
-[node name="GreenGrassPlatform" type="AnimatableBody2D"]
+[node name="SandPlatform" type="AnimatableBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -0.5)
