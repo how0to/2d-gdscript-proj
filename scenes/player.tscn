@@ -1,7 +1,7 @@
-[gd_scene load_steps=34 format=3 uid="uid://blgddhuptfyau"]
+[gd_scene load_steps=33 format=3 uid="uid://blgddhuptfyau"]
 
 [ext_resource type="Texture2D" uid="uid://bd8xrmyjx2wis" path="res://assets/sprites/knight.png" id="1_3vyb7"]
-[ext_resource type="Script" uid="uid://2ddvcj0c0fhn" path="res://scenes/player.gd" id="1_g2els"]
+[ext_resource type="Script" uid="uid://2ddvcj0c0fhn" path="res://scripts/player.gd" id="1_g2els"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2els"]
 atlas = ExtResource("1_3vyb7")
@@ -217,9 +217,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fjrip"]
-size = Vector2(5.5, 9.166666)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
 size = Vector2(7.4999995, 12.5)
 
@@ -235,11 +232,6 @@ position = Vector2(-1, 0)
 sprite_frames = SubResource("SpriteFrames_tuyoq")
 animation = &"Roll"
 autoplay = "Idle"
-
-[node name="Hitbox" type="CollisionShape2D" parent="."]
-position = Vector2(-0.7, 3.5)
-scale = Vector2(1.2, 1.2)
-shape = SubResource("RectangleShape2D_fjrip")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5000001, 4.5)
