@@ -238,5 +238,3 @@ autoplay = "Idle"
 position = Vector2(-0.5000001, 4.5)
 scale = Vector2(1.2, 1.2)
 shape = SubResource("RectangleShape2D_g2els")
-
-[node name="CoyoteTime" type="Timer" parent="."]
