@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://dq1ir3uipyqm8"]
+[gd_scene load_steps=16 format=4 uid="uid://dq1ir3uipyqm8"]
 
 [ext_resource type="PackedScene" uid="uid://blgddhuptfyau" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://cujtmgdf0u747" path="res://assets/sprites/world_tileset.png" id="2_yqjtg"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://g8r1clk56363" path="res://scenes/killzone.tscn" id="6_p57ef"]
 [ext_resource type="PackedScene" uid="uid://c2i1ni1l0pvjs" path="res://scenes/sand_platform.tscn" id="7_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://0ooi1t2wksxe" path="res://scenes/slime.tscn" id="8_gee14"]
+[ext_resource type="Script" uid="uid://cgxwi54vki8p" path="res://scripts/GameManager.gd" id="9_0tnpc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("2_yqjtg")
@@ -288,3 +289,6 @@ position = Vector2(1536, -245)
 
 [node name="Slime" parent="." instance=ExtResource("8_gee14")]
 position = Vector2(-26, -96)
+
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource("9_0tnpc")
