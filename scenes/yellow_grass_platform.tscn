@@ -3,12 +3,12 @@
 [ext_resource type="Texture2D" uid="uid://dgv0g03n5md2o" path="res://assets/sprites/platforms.png" id="1_p2vka"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fb7ww"]
-size = Vector2(1.5776377, 8)
+size = Vector2(1.5776377, 0.86565113)
 
 [node name="YellowGrassPlatform" type="AnimatableBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -0.5)
+position = Vector2(0, -4.4833183)
 scale = Vector2(20.283487, 1.1166593)
 shape = SubResource("RectangleShape2D_fb7ww")
 one_way_collision = true
