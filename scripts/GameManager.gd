@@ -1,11 +1,9 @@
 extends Node
 
-var score = 0
+@onready var ScoreLabel: Label = $"../Player/Camera2D/GUI/Score"
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	print("Game manager ready")
+var score = 0
 	
 func AddScore(amount):
 	score += amount
-	print("Score: " + str(score))
+	ScoreLabel.text = "Score: " + str(score)
